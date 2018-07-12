@@ -8,4 +8,6 @@ class Developer extends Model
 {
     protected $table = 'Developer';
     protected $primaryKey = 'Dev_Ref';
+
+
 }
