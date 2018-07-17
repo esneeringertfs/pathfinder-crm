@@ -24,9 +24,9 @@ class DeveloperService{
     {
         $developer = new Developer;
 
-        $developer->Dev_Ref = $request->Dev_Ref;
-        $developer->Dev_Internal_Ref = $request->Dev_Internal_Ref;
-        $developer->Dev_Code = $request->Dev_Code;
+        $developer->Dev_Ref = $request->input('Dev_Ref');
+        $developer->Dev_Internal_Ref = $request->input('Dev_Internal_Ref');
+        $developer->Dev_Code = $request->input('Dev_Code');
         $developer->Dev_Name = $request->Dev_Name;
         $developer->Cntry_of_Incorp = $request->Cntry_of_Incorp;
         $developer->Dev_Vat_Num = $request->Dev_Vat_Num;

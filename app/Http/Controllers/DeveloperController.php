@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Services\DeveloperService as DeveloperService;
 use Illuminate\Http\Request;
 use App\Developer;
+use Illuminate\Support\Facades\Input;
 
 class DeveloperController extends Controller
 {
@@ -26,11 +27,14 @@ class DeveloperController extends Controller
     }
 
     /**
+     * Store a new Developer
+     *
      * @param Request $request
+     * @param $id
+     * @return Response
      */
-    public function create(Request $request)
+    public function store(Request $request)
     {
-        dd($request->Dev_Ref);
         $this->developerService->createDeveloper($request);
     }
 }
