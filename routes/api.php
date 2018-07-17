@@ -27,3 +27,4 @@ Route::post('transaction/create', 'TransactionController@create');
  * Developer API Routes
  */
 Route::get('developer', 'DeveloperController@index');
+Route::post('developer', 'DeveloperController@create');

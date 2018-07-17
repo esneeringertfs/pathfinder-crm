@@ -11,16 +11,25 @@ namespace App\Services;
 use App\Transaction as Transaction;
 use Illuminate\Http\Request;
 
+/**
+ * Class TransactionService
+ * @package App\Services
+ */
 class TransactionService{
 
     /**
      * @return Transaction[]|\Illuminate\Database\Eloquent\Collection
      */
-    public function getAllTransactions(){
+    public function getAllTransactions()
+    {
         return Transaction::all();
     }
 
-    public function createTransaction(Request $request){
+    /**
+     * @param Request $request
+     */
+    public function createTransaction(Request $request)
+    {
         $transaction = new Transaction;
 
         $transaction->Sales_Ref = $request->salesRef;
