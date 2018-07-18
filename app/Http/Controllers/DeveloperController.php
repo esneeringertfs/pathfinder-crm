@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Services\DeveloperService as DeveloperService;
 use Illuminate\Http\Request;
-use App\Developer;
 
 class DeveloperController extends Controller
 {
@@ -20,11 +19,11 @@ class DeveloperController extends Controller
     /**
      * Retrieve all Developers
      *
-     * @return Developer[]|\Illuminate\Database\Eloquent\Collection
+     * @return \Illuminate\Http\JsonResponse
      */
     public function index()
     {
-        return $this->developerService->getAll();
+        return response()->json($this->developerService->getAll(),200);
     }
 
 
@@ -32,41 +31,45 @@ class DeveloperController extends Controller
      * Retrieve Developer by Dev_Ref (primary key)
      *
      * @param $devRef
-     * @return mixed
-     *
+     * @return \Illuminate\Http\JsonResponse
      */
     public function getByDevRef($devRef)
     {
-        return $this->developerService->getByDevRef($devRef);
+        return response()->json($this->developerService->getByDevRef($devRef), 200);
     }
 
     /**
      * Store a new Developer
      *
      * @param Request $request
-     * @param $id
-     * @return Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function create(Request $request)
     {
-        $this->developerService->create($request);
+        return response()->json($this->developerService->create($request), 201);
     }
 
     /**
+     * Update existing Developer details
+     *
      * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
      */
     public function update(Request $request)
     {
-        $this->developerService->update($request);
+        return response()->json($this->developerService->update($request),200);
+
     }
 
     /**
-     * @param $devRef
+     * Delete Developer (Soft)
      *
+     * @param $devRef
+     * @return \Illuminate\Http\JsonResponse
      */
     public function delete($devRef)
     {
-        $this->developerService->delete($devRef);
+        return response()->json($this->developerService->delete($devRef),200);
     }
 
 }
