@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Services\DeveloperService as DeveloperService;
 use Illuminate\Http\Request;
 use App\Developer;
-use Illuminate\Support\Facades\Input;
 
 class DeveloperController extends Controller
 {
@@ -19,11 +18,26 @@ class DeveloperController extends Controller
     }
 
     /**
+     * Retrieve all Developers
+     *
      * @return Developer[]|\Illuminate\Database\Eloquent\Collection
      */
     public function index()
     {
-        return $this->developerService->getAllDevelopers();
+        return $this->developerService->getAll();
+    }
+
+
+    /**
+     * Retrieve Developer by Dev_Ref (primary key)
+     *
+     * @param $devRef
+     * @return mixed
+     *
+     */
+    public function getByDevRef($devRef)
+    {
+        return $this->developerService->getByDevRef($devRef);
     }
 
     /**
@@ -33,8 +47,26 @@ class DeveloperController extends Controller
      * @param $id
      * @return Response
      */
-    public function store(Request $request)
+    public function create(Request $request)
     {
-        $this->developerService->createDeveloper($request);
+        $this->developerService->create($request);
     }
+
+    /**
+     * @param Request $request
+     */
+    public function update(Request $request)
+    {
+        $this->developerService->update($request);
+    }
+
+    /**
+     * @param $devRef
+     *
+     */
+    public function delete($devRef)
+    {
+        $this->developerService->delete($devRef);
+    }
+
 }

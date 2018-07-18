@@ -16,15 +16,12 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
-/**
- * Transaction API Routes
- */
-Route::get('transaction', 'TransactionController@index');
-Route::post('transaction/create', 'TransactionController@create');
-
 
 /**
  * Developer API Routes
  */
-Route::get('developer', 'DeveloperController@index');
-Route::post('developer', 'DeveloperController@store');
+Route::get('developers', 'DeveloperController@index');
+Route::post('developers', 'DeveloperController@create');
+Route::put('developers', 'DeveloperController@update');
+Route::delete('developers/{devRef}', 'DeveloperController@delete');
+Route::get('developers/{devRef}', 'DeveloperController@getByDevRef');

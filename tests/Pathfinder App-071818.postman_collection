@@ -1,0 +1,84 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Pathfinder App",
+		"_postman_id": "87fd2c90-cbad-4009-9eee-ca37ff11291e",
+		"description": "Pathfinder Real Estate Rest Inventory",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Developer (Get All)",
+			"request": {
+				"url": "{{url}}/api/developers",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "Get All Developers"
+			},
+			"response": []
+		},
+		{
+			"name": "Developer (Create)",
+			"request": {
+				"url": "{{url}}/api/developers",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\n        \"Dev_Ref\": 6,\n        \"Dev_Internal_Ref\": \"002\",\n        \"Dev_Code\": 1,\n        \"Dev_Name\": \"Ellioy\",\n        \"Cntry_of_Incorp\": \"Mexico\",\n        \"Dev_Vat_Num\": 5,\n        \"Address_1\": \"1234 Agora Inc Drive\",\n        \"Address_2\": null,\n        \"Address_3\": null,\n        \"Address_4\": null,\n        \"Address_5\": null\n    }"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Developer (Get By Dev_Ref)",
+			"request": {
+				"url": "{{url}}/api/developers/3",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Developer (Update)",
+			"request": {
+				"url": "{{url}}/api/developers",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"Dev_Ref\": 3,\n    \"Dev_Internal_Ref\": \"002\",\n    \"Dev_Code\": 1,\n    \"Dev_Name\": \"Elliot\",\n    \"Cntry_of_Incorp\": \"Costa Rica\",\n    \"Dev_Vat_Num\": \"5\",\n    \"Address_1\": \"1234 Agora Inc Drive\",\n    \"Address_2\": null,\n    \"Address_3\": null,\n    \"Address_4\": null,\n    \"Address_5\": null\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Developer (Delete)",
+			"request": {
+				"url": "{{url}}/api/developers/4",
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"description": "Soft Delete by Dev_Ref"
+			},
+			"response": []
+		}
+	]
+}
